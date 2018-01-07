@@ -31,19 +31,19 @@ export default class CKEditor extends Component {
     onChange: () => {},
   };
 
+  state = {
+    defaultValue: '',
+  };
+
   constructor(props) {
     super(props);
     this.editor = null;
     this.el = null;
-    this.state = {
-      defaultValue: '',
-    };
   }
   handleChange = value => {
     this.props.input.onChange(value);
     this.props.onChange(value);
   };
-
   componentDidMount = () => {
     //   console.log(ClassicEditor.build.plugins.map(plugin => plugin.pluginName)); // plugins
     ClassicEditor.create(this.el, {

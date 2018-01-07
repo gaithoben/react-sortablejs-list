@@ -23,20 +23,28 @@ export default class CKEditor extends Component {
   static defaultProps = {
     uploadUrl: '/fileapi/upload/editorimage',
     value: '',
+    input: {
+      value: '',
+      onChange: () => {},
+    },
+    onChange: () => {},
   };
   constructor(props) {
     super(props);
     this.editor = null;
     this.el = null;
+    this.state = {
+      defaultValue: '',
+    };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.props.value) {
-      this.editor.setData(
-        `<div>${this.props.value || this.props.input.value}</div>`
-      );
-    }
-  }
+  componentWillReceiveProps(nextProps) {}
+  handleChange = value => {
+    console.log('CHANGED', value);
+    this.props.input.onChange(value);
+    this.props.onChange(value);
+  };
+
   componentDidMount = () => {
     //   console.log(ClassicEditor.build.plugins.map(plugin => plugin.pluginName)); // plugins
     ClassicEditor.create(this.el, {
@@ -108,7 +116,7 @@ export default class CKEditor extends Component {
           `<div>${this.props.value || this.props.input.value}</div>`
         );
         this.editor.document.on('change', () => {
-          this.props.onChange(this.editor.getData());
+          this.handleChange(this.editor.getData());
         });
       })
       .catch(error => {

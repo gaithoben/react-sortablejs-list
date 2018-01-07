@@ -7,15 +7,12 @@ class App extends Component {
     value: 'hello',
   };
   onChange = value => {
-    console.log(value);
+    console.log('RECEIVED', value);
   };
   render() {
     return (
       <div>
-        <div className="App-intro">
-          <Awesome />
-        </div>
-        <p className="App-intro">Another Below</p>
+        <p className="App-intro">Another Editor</p>
         <Awesome value={this.state.value} onChange={this.onChange} />
       </div>
     );

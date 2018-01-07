@@ -32,7 +32,9 @@ export default class CKEditor extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
-      this.editor.setData(`<div>${this.props.value}</div>`);
+      this.editor.setData(
+        `<div>${this.props.value || this.props.input.value}</div>`
+      );
     }
   }
   componentDidMount = () => {
@@ -102,7 +104,9 @@ export default class CKEditor extends Component {
 
         // console.log(arr); // toolbar
         const viewDoc = editor.editing.view;
-        this.editor.setData(`<div>${this.props.value}</div>`);
+        this.editor.setData(
+          `<div>${this.props.value || this.props.input.value}</div>`
+        );
         this.editor.document.on('change', () => {
           this.props.onChange(this.editor.getData());
         });

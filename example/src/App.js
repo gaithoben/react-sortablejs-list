@@ -7,8 +7,13 @@ class App extends Component {
     value: 'hello',
   };
   onChange = value => {
-    console.log('RECEIVED', value);
+    this.setState({ value });
   };
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ value: 'Hello whoever' });
+    }, 5000);
+  }
   render() {
     return (
       <div>

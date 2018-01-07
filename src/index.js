@@ -41,9 +41,28 @@ export default class CKEditor extends Component {
     this.el = null;
   }
   handleChange = value => {
+    if (value === this.props.value || value === this.props.input.value) {
+      return;
+    }
+
     this.props.input.onChange(value);
     this.props.onChange(value);
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (!this.state.defaultValue) {
+      if (nextProps.value !== this.props.value) {
+        this.setState({ defaultValue: nextProps.value }, () => {
+          this.editor.setData(nextProps.value);
+        });
+      }
+      if (nextProps.input.value !== this.props.input.value) {
+        this.setState({ defaultValue: nextProps.input.value }, () => {
+          this.editor.setData(nextProps.input.value);
+        });
+      }
+    }
+  }
   componentDidMount = () => {
     //   console.log(ClassicEditor.build.plugins.map(plugin => plugin.pluginName)); // plugins
     ClassicEditor.create(this.el, {
@@ -111,9 +130,7 @@ export default class CKEditor extends Component {
 
         // console.log(arr); // toolbar
         const viewDoc = editor.editing.view;
-        this.editor.setData(
-          `<div>${this.props.value || this.props.input.value}</div>`
-        );
+        this.editor.setData(this.props.input.value || this.props.value);
         this.editor.document.on('change', () => {
           this.handleChange(this.editor.getData());
         });
@@ -125,6 +142,7 @@ export default class CKEditor extends Component {
 
   render() {
     const { meta } = this.props;
+
     return (
       <div>
         <div

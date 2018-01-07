@@ -30,6 +30,7 @@ export default class CKEditor extends Component {
     meta: {},
     onChange: () => {},
   };
+
   constructor(props) {
     super(props);
     this.editor = null;
@@ -38,8 +39,6 @@ export default class CKEditor extends Component {
       defaultValue: '',
     };
   }
-
-  componentWillReceiveProps(nextProps) {}
   handleChange = value => {
     this.props.input.onChange(value);
     this.props.onChange(value);

@@ -27,6 +27,7 @@ export default class CKEditor extends Component {
       value: '',
       onChange: () => {},
     },
+    meta: {},
     onChange: () => {},
   };
   constructor(props) {
@@ -40,7 +41,6 @@ export default class CKEditor extends Component {
 
   componentWillReceiveProps(nextProps) {}
   handleChange = value => {
-    console.log('CHANGED', value);
     this.props.input.onChange(value);
     this.props.onChange(value);
   };
@@ -125,6 +125,7 @@ export default class CKEditor extends Component {
   };
 
   render() {
+    const { meta } = this.props;
     return (
       <div>
         <div
@@ -132,6 +133,8 @@ export default class CKEditor extends Component {
             this.el = el;
           }}
         />
+        {meta.touched &&
+          meta.error && <div className="error">{meta.error}</div>}
       </div>
     );
   }

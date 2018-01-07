@@ -17,14 +17,12 @@ import ListPlugin from '@ckeditor/ckeditor5-list/src/list';
 import ParagraphPlugin from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import ImageuploadPlugin from '@ckeditor/ckeditor5-upload/src/imageupload';
 import placeholder from '@ckeditor/ckeditor5-engine/src/view/placeholder';
-
 import './ckeditor.css';
 
 export default class CKEditor extends Component {
   static defaultProps = {
-    id: '1',
     uploadUrl: '/fileapi/upload/editorimage',
-    value: 'hello',
+    value: '',
   };
   constructor(props) {
     super(props);

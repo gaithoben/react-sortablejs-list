@@ -3,10 +3,7 @@
   "version": "0.0.0-development",
   "description": "A package to put Ckeditor in your project",
   "main": "dist/index.umd.js",
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "files": ["dist", "README.md"],
   "scripts": {
     "commit": "git-cz",
     "test": "mocha src/index.test.js -w --require babel-core/register",
@@ -22,13 +19,9 @@
     "type": "git",
     "url": "https://github.com/gaithoben/react-ckeditor5.git"
   },
-  "keywords": [
-    "kenya",
-    "counties",
-    "constituencies",
-    "wards"
-  ],
-  "author": "Bernard Gaitho <gaithoben@gmail.com> (http://github.com/gaithoben)",
+  "keywords": ["kenya", "counties", "constituencies", "wards"],
+  "author":
+    "Bernard Gaitho <gaithoben@gmail.com> (http://github.com/gaithoben)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gaithoben/react-ckeditor5/issues"
@@ -85,20 +78,10 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
-    },
-    "ghooks": {
-      "pre-commit": "npm run test:single"
     }
   },
   "babel": {
-    "presets": [
-      "env",
-      "react",
-      "stage-2"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "transform-react-jsx"
-    ]
+    "presets": ["env", "react", "stage-2"],
+    "plugins": ["transform-class-properties", "transform-react-jsx"]
   }
 }

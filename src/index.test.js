@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import Ckeditor from './index';
+import Ckeditor from '../dist/index.umd';
 
 describe('Ckeditor Component', function() {
   describe('component', function() {

@@ -1,19 +1,17 @@
 import { join } from 'path';
 const include = join(__dirname, 'src');
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 export default {
   devtool: 'source-map',
-  entry: [require.resolve('regenerator-runtime/runtime.js'), './src/index'],
+  entry: './src/index',
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'react-ckeditor5',
+    library: 'react-sortable-list',
   },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader' },
-      { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'css-loader' },
       {
         test: /\.scss$/,

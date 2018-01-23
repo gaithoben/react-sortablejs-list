@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 
-import Ckeditor from '../dist/index.umd';
+import SortbaleList from './index.js';
 
-describe('Ckeditor Component', function() {
+describe('SortbaleList Component', function() {
   describe('component', function() {
     it('It should return a function', function() {
-      expect(Ckeditor).to.satisfy(isFunction);
+      expect(SortbaleList).to.satisfy(isFunction);
 
       function isFunction(args) {
         console.log(typeof args);

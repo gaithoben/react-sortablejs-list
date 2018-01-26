@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Sortable from 'sortablejs';
 
-export default class CKEditor extends Component {
+export default class SortableList extends Component {
   static defaultProps = {
     style: {},
     input: {
